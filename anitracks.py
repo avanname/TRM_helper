@@ -3,16 +3,14 @@ import pandas
 import numpy as np
 import matplotlib.pylab as plt
 import scipy.stats
-import subprocess
 import datetime
 
-tr = pytraj.Trm('rutgersNWA','rutgersNWA')
 
 #~~~~~~~~REPLACE PATHS HERE~~~~~~~#
 outdatadir = '/Volumes/P4/workdir/ashley/TRM_output/'
 filename = '12003.1.300_t00731225_run.bin'
 animdir = '/Volumes/P4/workdir/ashley/Plots/ParticlePositions/Animate/Animate/' #directory to store images and create animation
-
+tr = pytraj.Trm('rutgersNWA','rutgersNWA')
 
 #~~~~~~~~~RUN INFORMATION~~~~~~~~~~~#
 start_date = '01/10/03'
