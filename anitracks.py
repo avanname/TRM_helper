@@ -47,10 +47,6 @@ jroms = np.array([int(line.rstrip('\n')) for line in open('bigbounds.txt')]) #j-
 
 ax = plt.gca()
 
-#For titling purposes...
-thirtyones = np.array([1,3,5,7,8,10,12])
-thirties = np.array([04,06,9,11])
-
 for j in range(0,len(datasort)+1,partnum):
 	datasort = datasort.sort_index()
 	dataplot = datasort[0:j]
