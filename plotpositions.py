@@ -45,8 +45,8 @@ Z1[nans] = 0
 
 #-------plotting------#
 
-Creats hexbin plot of ending particle positions
-group1reset.plot(kind='hexbin', x='x', y='y', C='part',cmap='cool', gridsize=100)
+#Creats hexbin plot of ending particle positions
+group1reset.plot(kind='hexbin', x='x', y='y', C='part',cmap='winter', gridsize=100)
 plt.title('Ending Particle Positions') 
 plt.savefig('Endingpartpos.png')
 
