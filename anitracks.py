@@ -3,19 +3,21 @@ import pandas
 import numpy as np
 import matplotlib.pylab as plt
 import scipy.stats
+import subprocess
 import datetime
 
+tr = pytraj.Trm('rutgersNWA','rutgersNWA')
 
 #~~~~~~~~REPLACE PATHS HERE~~~~~~~#
 outdatadir = '/Volumes/P4/workdir/ashley/TRM_output/'
-filename = '12003.1.300_t00731225_run.bin'
+filename = '12003.100.250_t00731225_run.bin'
 animdir = '/Volumes/P4/workdir/ashley/Plots/ParticlePositions/Animate/Animate/' #directory to store images and create animation
-tr = pytraj.Trm('rutgersNWA','rutgersNWA')
+
 
 #~~~~~~~~~RUN INFORMATION~~~~~~~~~~~#
 start_date = '01/10/03'
-timesteps = 300 #Number of days of the run
-partnum = 49 #Number of particles seeded
+timesteps = 250 #Number of days of the run
+partnum = 4900 #Number of particles seeded
 
 
 #=============PLOTTING==============#
@@ -45,19 +47,23 @@ jroms = np.array([int(line.rstrip('\n')) for line in open('bigbounds.txt')]) #j-
 
 ax = plt.gca()
 
+#For titling purposes...
+thirtyones = np.array([1,3,5,7,8,10,12])
+thirties = np.array([04,06,9,11])
+
 for j in range(0,len(datasort)+1,partnum):
 	datasort = datasort.sort_index()
 	dataplot = datasort[0:j]
 	dataplot = dataplot.sort_index()
-	ax.plot(iroms,jroms, color='brown') #<--TURN OFF IF NOT PLOTTING A BOUNDARY
+        ax.plot(iroms,jroms, color='brown') #<--TURN OFF IF NOT PLOTTING A BOUNDARY
 	dataplot = datasort.sort_index()
-	dataplot = dataplot[0+j:49+j]
-  	start = dataplot.head(1)
-  	end = dataplot.tail(1)
-  	ax.plot(dataplot['x'], dataplot['y'], '.', color='black', markersize=0.1,  alpha=1, linewidth=.2,zorder=1)
+        dataplot = dataplot[0+j:partnum+j]
+        start = dataplot.head(1)
+        end = dataplot.tail(1)
+        ax.plot(dataplot['x'], dataplot['y'], '.', color='black', markersize=0.1,  alpha=1, linewidth=.2,zorder=1)
 	dataplot = datasort
 	date_1 = datetime.datetime.strptime(start_date, "%m/%d/%y")
-  	end_date = str(date_1 + datetime.timedelta(days=(float(j)/float(49))))
+        end_date = str(date_1 + datetime.timedelta(days=(float(j)/float(partnum))))
 	plt.title(str(end_date[0:10]) + " : Tracks of " + str(partnum) + ' particles')
 	plt.savefig(animdir+str("%07d" % (j,))+'_'+'tracks.png')
 
