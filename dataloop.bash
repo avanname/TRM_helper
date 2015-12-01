@@ -16,26 +16,26 @@ OUT_DIR=/Volumes/P4/workdir/ashley/TRM_output/
 
 #Enter the name of the text file with YYYYMM on each line
 textfile='yearmonth.txt'
-startDay=16
+startDay=10
 
 # Number of particles, starting/ending
-startpart=50000 
-endpart=100000
-interval=50000
+startpart=100 
+endpart=100
+interval=100
 
 #Number of days to release particles
 dayrelease=1
 
 #Number of days to track particles
 #Number of timesteps
-daytrack=50
+daytrack=250
 
 
 #I-J Grid Coords
-ist1=580 #237=site1
-ist2=582 #237
-jst1=183 #140
-jst2=185 #140
+ist1=580 
+ist2=582 
+jst1=183 
+jst2=185 
 #===================================================#
 
 for part in $( seq $startpart $interval $endpart) ; do
