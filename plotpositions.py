@@ -52,8 +52,3 @@ plt.savefig('Endingpartpos.png')
 
 #----------------------#
 
-#Now we want to know how many particles have passed the j=200 line (or any other axis, just change)
-shelfpart = group1reset[group1reset.y >200]
-print shelfpart
-print shelfpart.sum(axis=0)
-print shelfpart['part'].sum()
